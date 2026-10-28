@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f4f7f5">
+  <meta name="description" content="SACH helps people in Pakistan recognize suspicious messages and screenshots with clear next steps in English and Urdu.">
+  <title>SACH — Message Safety Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <svg aria-hidden="true" class="symbol-defs" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+    <symbol id="lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="3" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8 10V7a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+    <symbol id="spark" viewBox="0 0 24 24"><path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5Z" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+    <symbol id="upload" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="8.5" cy="8.5" r="1.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m3 16 6-5 4 3 3-3 5 4" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+    <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h3" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+    <symbol id="alert" viewBox="0 0 24 24"><path d="m12 3 10 18H2L12 3Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M12 9v5m0 3h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  </svg>
+  <header class="topbar">
+    <div class="shell top-inner">
+      <a href="#top" class="brand" aria-label="SACH homepage"><span class="logo">S.</span><span><span class="brand-title brand-block">SACH</span><span class="brand-sub brand-block">Message Safety Desk</span></span></a>
+      <nav class="nav" aria-label="Main navigation"><a class="active" href="#checker">Fraud checker</a><a href="#guide">Safety guide</a><a href="#reporting">Reporting help</a></nav>
+      <div class="top-actions"><span class="top-tag">Built for Pakistan 🇵🇰</span><button class="icon-button" id="themeBtn" type="button" aria-label="Toggle dark mode" title="Toggle appearance">◐</button></div>
+    </div>
+  </header>
+  <main class="shell" id="top">
+    <section class="hero"><div><span class="eyebrow">Digital safety, made simple</span><h1>Think twice. <em>Check once.</em><br>Stay one step ahead.</h1><p>Not sure about a WhatsApp forward, bank SMS, job offer or screenshot? Get a clearer picture of possible fraud signals, before you respond.</p></div><aside class="hero-side" aria-label="Service highlights"><div><svg width="18" height="18"><use href="#shield"/></svg> Pakistan-aware fraud patterns</div><div><svg width="18" height="18"><use href="#spark"/></svg> English and Urdu guidance</div><div><svg width="18" height="18"><use href="#lock"/></svg> No message history saved to disk</div></aside></section>
+    <section class="workspace" id="checker" aria-label="SACH message checker">
+      <div class="panel left">
+        <div class="panel-header"><div class="panel-heading"><span class="step">01</span><div><h2>Check a message</h2><p>Add suspicious text or a screenshot</p></div></div><span class="mini-mode">PRIVATE BY DEFAULT</span></div>
+        <label class="label" for="message">Message content <span class="optional">Up to 5,000 characters</span></label>
+        <div class="text-area"><textarea id="message" maxlength="5000" spellcheck="false" placeholder="Paste an SMS, WhatsApp forward, payment request or Roman Urdu message here...&#10;&#10;Example: Your account will be blocked today. Please share your OTP to verify."></textarea><div class="text-tools"><span class="inline-actions"><button type="button" class="text-action" id="pasteBtn">Paste</button><button type="button" class="text-action" id="clearBtn">Clear</button></span><span id="charCount">0 / 5000</span></div></div>
+        <div class="upload" id="dropzone"><div class="upload-info"><span class="upload-icon" id="uploadIcon"><svg width="23" height="23"><use href="#upload"/></svg></span><img id="preview" alt="Screenshot preview"><div><h3>Attach a screenshot <span class="optional">(optional)</span></h3><p id="uploadLabel">PNG, JPEG or WebP · Maximum 4 MB</p></div></div><div class="upload-buttons"><input hidden type="file" id="imageFile" accept="image/png,image/jpeg,image/webp"><button type="button" class="outline-btn" id="removeImage" aria-label="Remove screenshot">✕</button><button type="button" class="outline-btn" id="browseBtn">Browse</button></div></div>
+        <div class="samples"><div class="samples-head">Or try a sample scenario</div><div class="sample-row"><button type="button" class="chip" data-sample="otp">🔐 OTP request</button><button type="button" class="chip" data-sample="bisp">🏛️ BISP / 8171</button><button type="button" class="chip" data-sample="job">💼 Job offer</button><button type="button" class="chip" data-sample="parcel">📦 Parcel scam</button><button type="button" class="chip" data-sample="safe">✅ Normal alert</button></div></div>
+        <div class="ai-row"><input type="checkbox" id="aiOpt" disabled><div><label for="aiOpt">Enable AI-enhanced analysis <span id="aiAvailability" class="optional">Checking availability…</span></label><p>Optional. When selected, your message and attached screenshot are sent to Google's Gemini API for analysis. Leave off for local text-only checks.</p></div></div>
+        <button type="button" class="primary" id="analyzeBtn"><span id="analyzeText">Analyze message safety</span><span><span class="keyboard">Ctrl + Enter</span>&nbsp;&nbsp; <svg width="19" height="19"><use href="#arrow"/></svg></span></button>
+        <div id="formError" role="alert" class="form-error"></div>
+        <p class="privacy-note"><svg width="13" height="13"><use href="#lock"/></svg> Message history stays in this browser tab only. This tool does not verify sender identity or live website reputation.</p>
+      </div>
+      <div class="panel right" aria-live="polite">
+        <div class="panel-header"><div class="panel-heading"><span class="step">02</span><div><h2>Safety assessment</h2><p>Understand the signals, not just a score</p></div></div><div class="lang-toggle" role="group" aria-label="Report language"><button type="button" id="langEn" aria-pressed="true">EN</button><button type="button" id="langUr" aria-pressed="false">اردو</button></div></div>
+        <div class="result-empty" id="resultEmpty"><div class="empty-visual"><svg><use href="#shield"/></svg></div><h3>Your safety check starts here.</h3><p>Add a message on the left and we'll highlight suspicious patterns, explain what we found, and suggest practical next steps.</p><div class="empty-steps"><span>01 · Submit</span><span>02 · Review</span><span>03 · Stay safe</span></div></div>
+        <div class="assessment" id="assessment" aria-hidden="true">
+          <div class="verdict"><div><span class="verdict-label">Assessment outcome</span><h3 id="verdictTitle" class="medium">Review this message</h3><div class="verdict-type" id="scamType">—</div></div><div class="score-ring"><svg viewBox="0 0 100 100"><circle class="ring-bg" cx="50" cy="50" r="40"/><circle class="ring-bar" id="scoreCircle" cx="50" cy="50" r="40"/></svg><div class="ring-text"><span id="riskScore">—</span><small>RISK INDEX</small></div></div></div>
+          <p class="caveat">Risk index reflects detected patterns, not a verified probability of fraud. A low score is never proof of authenticity.</p>
+          <section class="result-section"><div class="section-top"><h3>What this means</h3><span id="analysisMode">—</span></div><p class="section-copy" id="explanation"></p></section>
+          <section class="result-section"><div class="section-top"><h3>Warning signs</h3><span id="flagCount">0 signals</span></div><ul class="report-list" id="flags"></ul></section>
+          <section class="result-section" id="indicatorSection" hidden><div class="section-top"><h3>Links &amp; contact details</h3><span>Not verified or opened</span></div><div class="indicator-list" id="indicators"></div></section>
+          <section class="result-section"><div class="section-top"><h3>Recommended next steps</h3><span>Stay in control</span></div><ol class="report-list" id="steps"></ol></section>
+          <div class="actions"><button type="button" class="action" id="copyBtn"><svg width="15" height="15"><use href="#copy"/></svg> Copy summary</button><button type="button" class="action" id="downloadBtn">↓ Save report</button><button type="button" class="action whatsapp" id="shareBtn">↗ Share warning</button><button type="button" class="action" id="printBtn">⎙ Print</button></div>
+        </div>
+      </div>
+    </section>
+    <section class="history" id="historySection" aria-label="Recent session checks"><div class="history-full"><div class="history-head"><div><h2>Recent checks</h2><p>Only in this tab — automatically lost when closed or refreshed</p></div><button class="text-action" id="clearHistory" type="button">Clear session</button></div><div class="history-pills" id="historyPills"></div></div></section>
+    <section class="guide" id="guide"><div class="guide-header"><div><span class="eyebrow">Stay informed</span><h2>A few habits that stop a lot of scams.</h2></div><p>Useful guidance even before you run a check.</p></div><div class="guide-grid"><article class="guide-card"><div class="guide-icon"><svg width="21" height="21"><use href="#lock"/></svg></div><h3>Keep your codes private</h3><p>Never share an OTP, wallet PIN or card CVV in a call or chat. Fraudsters may pretend to represent a bank, BISP or a delivery company.</p></article><article class="guide-card"><div class="guide-icon"><svg width="21" height="21"><use href="#alert"/></svg></div><h3>Verify outside the message</h3><p>Do not trust a link, phone number or caller ID on sight. Use the official app or type a known website yourself to confirm a claim.</p></article><article class="guide-card" id="reporting"><div class="guide-icon"><svg width="21" height="21"><use href="#shield"/></svg></div><h3>Report suspected cybercrime</h3><p>Save evidence privately and follow the current official reporting process. <a class="help-link" href="https://complaint.nccia.gov.pk/" target="_blank" rel="noopener noreferrer">NCCIA complaint portal ↗</a></p></article></div></section>
+  </main>
+  <footer class="shell footer"><div><strong>SACH</strong> · Safety Assessment &amp; Cyber Help</div><div>Educational fraud screening, not a guarantee or official verification service. Never enter real OTPs or PINs.</div></footer>
+  <script src="/app.js" defer></script>
+</body>
+</html>
